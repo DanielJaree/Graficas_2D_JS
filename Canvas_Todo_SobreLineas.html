@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #miCanvas{
+            border:  dotted 5px rgb(0, 225, 255);
+            background-color: rgb(153, 0, 255);
+        }
+    </style>
+</head>
+<body>
+    <h1>Graficas 2D con HTML y Javascript</h1>
+    <canvas id="miCanvas" width="500px" height="300px">Tu navegador no soporta </canvas>
+    <script>
+        window.onload = function()
+        {
+
+            var canvas = document.getElementById("miCanvas")
+            
+            const BASE = 500;
+            const ALTURA = 300;
+
+            canvas.width = BASE;
+            canvas.height = ALTURA;
+
+            if(canvas && canvas.getContext){
+                var ctx = canvas.getContext("2d")
+                if (ctx){
+                    //alert("Bienvenido al canvas")
+                    // Aqui vamos a graficar
+
+                    //caracteristicas de las lineas
+                    ctx.lineWidth = 5;
+                    ctx.strokeStyle = '#33ff97';
+                    ctx.fillStyle = '#f900ff';
+                    //arco 1
+                    ctx.beginPath();
+                    ctx.arc(100,100,50,0,Math.PI*2,true);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    // contra arco 1
+                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = '#000000';
+                    ctx.beginPath();
+                    ctx.moveTo(100,50);
+                    ctx.lineTo(100,ALTURA);
+                    ctx.stroke();
+                    //linea horizontal centro circulos 
+                    
+
+                    //arco 2
+                    ctx.strokeStyle = '#ff0'
+                    ctx.beginPath();
+                    ctx.arc(200,100,50,0,Math.PI*2,false);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+
+                    //arco 3
+                    ctx.strokeStyle = '#ffffff'
+                    ctx.beginPath();
+                    ctx.arc(300,100,50,0,Math.PI*2,false);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+
+                    //arco 4
+                    ctx.strokeStyle = '#CC2846'
+                    ctx.beginPath();
+                    ctx.arc(400,100,50,0,Math.PI*2,false);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.fill();//rellenamos el circulo
+                    ctx.stroke();
+
+                    //color y ancho de linea
+                    ctx.strokeStyle = '#ff0000'
+                    ctx.lineWidth = 5;
+                    //dibujamos una linea
+                    ctx.beginPath(); //iniciamos el trazo
+                    ctx.moveTo(250,0); //nos movemos a la posicion inicial
+                    ctx.lineTo(250,300); //trazamos una linea hasta las coordenadas base, altura
+                    ctx.stroke(); //cerramos el trazo
+                    
+                
+
+                     //dibujamos otra linea
+                     ctx.strokeStyle = '#00ff00'
+                    ctx.beginPath(); //iniciamos el trazo
+                    ctx.moveTo(BASE,0); //nos movemos a la posicion inicial
+                    ctx.lineTo(0,ALTURA); //trazamos una linea hasta las coordenadas base, altura
+                    ctx.stroke(); //cerramos el trazo
+
+
+
+                    //Dibujo un poligono - triangulo
+                    ctx.strokeStyle = '#00ff'
+                    ctx.fillstyle = '#ff0000'
+                    ctx.beginPath(); //iniciamos el trazo
+                    ctx.moveTo(0,ALTURA/2); //nos movemos a la posicion inicial
+                    ctx.lineTo(BASE/2,0); //trazamos una linea hasta las coordenadas base medios, 0
+                    ctx.lineTo(BASE,ALTURA/2); //trazamos una linea hasta las coordenadas base, altura medios
+                    ctx.fill(); //rellenamos el triangulo
+                    ctx.stroke(); //cerramos el trazo
+                }
+                else{
+                    alert("Error al crear el contexto")
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

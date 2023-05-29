@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #miCanvas{
+            background-color: rgb(186,12,47);
+        }
+    </style>
+</head>
+<body>
+    <h1>Bandera de Noruega</h1>
+    <canvas id="miCanvas" width="660px" height="480px">Tu navegador no soporta </canvas>
+    <script>
+        window.onload = function(){
+
+            var canvas = document.getElementById("miCanvas")
+
+            const BASE = canvas.width
+
+            const ALTURA = canvas.height
+
+            if(canvas && canvas.getContext){
+
+                var ctx = canvas.getContext("2d")
+
+                if (ctx){
+
+                    //alert("Bienvenido al canvas")
+                    ctx.fillStyle = "RGB(255 255 255)"
+                    ctx.fillRect(0,180,210, 30)
+                    ctx.fillRect(180,0,30,210)
+                    ctx.fillRect(270,0,30,210)
+                    ctx.fillRect(0,270,210,30)
+                    ctx.fillRect(180,270,30,480)
+                    ctx.fillRect(270,180,660,30)
+                    ctx.fillRect(270,270,660,30)
+                    ctx.fillRect(270,270,30,480)
+
+                    ctx. fillStyle = "RGB(0, 32, 91)"
+                    ctx.fillRect(240,0,60,ALTURA)
+                    ctx.fillRect(0,210,BASE,60)
+                    
+                    
+                }
+                else{
+
+                    alert("Error al crear el contexto")
+
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

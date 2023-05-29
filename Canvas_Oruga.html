@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #miCanvas{
+            background-color: #5f5e5e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Graficas 2D con HTML y Javascript</h1>
+    <canvas id="miCanvas" width="800px" height="600px">Tu navegador no soporta </canvas>
+    
+    <script>
+        window.onload = function()
+        {
+
+            var canvas = document.getElementById("miCanvas")
+            
+            const BASE = 600;
+            const ALTURA = 300;
+
+            canvas.width = BASE;
+            canvas.height = ALTURA;
+
+            if(canvas && canvas.getContext){
+                var ctx = canvas.getContext("2d")
+                if (ctx){
+                    //alert("Bienvenido al canvas")
+                    // Aqui vamos a graficar
+
+                    //caracteristicas de las lineas
+                    ctx.lineWidth = 10;
+                    ctx.strokeStyle = '#1B9100';
+                    ctx.fillStyle = '#32FF03';
+
+                    // antena
+                    ctx.beginPath();
+                    ctx.arc (450, 100, 50, 0, Math.PI, true);
+                    ctx.stroke();
+
+                    //arco 1
+                    ctx.beginPath();
+                    ctx.arc(100,100,50,0,Math.PI*2,true);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    ctx.fill();
+
+                    //arco 2
+                    ctx.strokeStyle = '#1B9100'
+                    ctx.fillStyle = '#32FF03';
+                    ctx.beginPath();
+                    ctx.arc(200,100,50,0,Math.PI*2,false);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    ctx.fill();
+
+                    //arco 3
+                    ctx.strokeStyle = '#1B9100'
+                    ctx.fillStyle = '#32FF03';
+                    ctx.beginPath();
+                    ctx.arc(300,100,50,0,Math.PI*2,false);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    ctx.fill();
+
+                    //arco 4
+                    ctx.strokeStyle = '#1B9100'
+                    ctx.fillStyle = '#32FF03';
+                    ctx.beginPath();
+                    ctx.arc(400,100,50,0,Math.PI*2,false);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    ctx.fill();
+    
+                    ctx.stroke(); //cerramos el trazo
+                }
+                else{
+                    alert("Error al crear el contexto")
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
