@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #miCanvas{
+            border:  dotted 5px rgb(0, 0, 0);
+            background-color: rgb(78, 78, 78);
+        }
+    </style>
+</head>
+<body>
+    <h1>Graficas 2D con HTML y Javascript</h1>
+    <canvas id="miCanvas" width="500px" height="300px">Tu navegador no soporta </canvas>
+    <script>
+        window.onload = function()
+        {
+
+            var canvas = document.getElementById("miCanvas")
+            
+            const BASE = 600;
+            const ALTURA = 400;
+
+            canvas.width = BASE;
+            canvas.height = ALTURA;
+
+            if(canvas && canvas.getContext){
+                var ctx = canvas.getContext("2d")
+                if (ctx)
+                {
+                    //alert("Bienvenido al canvas")
+                    // Aqui vamos a graficar
+
+                    //
+                    ctx.strokeStyle = '#DD4242'
+                    ctx.beginPath();
+                    ctx.arc(160,173,40,0,Math.PI*2,true);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.fillStyle = 'yellow'
+                    ctx.lineWidth = 5;
+                    ctx.fillRect(160,125,190,100)
+
+                    ctx.font = "2em Verdana";
+                    ctx.lineWidth = 3;
+                    ctx.fillStyle = "#000000";
+                    ctx.strokeStyle = "#000000";
+                    ctx.fillText("Jarezinho",BASE/3.5,ALTURA/2.5);
+                    ctx.strokeText("Jarezinho",BASE/3.5,ALTURA/2.5);
+                    ctx.fillRect(200,200,1,50);
+
+
+                    ctx.fillStyle = 'purple'
+                    ctx.lineWidth = 5;
+                    ctx.fillRect(250,55,90,70)
+
+                    ctx.strokeStyle = '#d4966f'
+                    ctx.fillStyle="#d4966f"
+                    ctx.lineWidth = 5;
+                    ctx.beginPath()
+                    ctx.arc(295,93,25,0,2*Math.PI,false);
+                    ctx.fill()
+                    ctx.stroke()
+
+                    ctx.strokeStyle = 'white'
+                    ctx.fillStyle="white"
+                    ctx.lineWidth = 5;
+                    ctx.beginPath()
+                    ctx.arc(285,87,5,0,2*Math.PI,false);
+                    ctx.fill()
+                    ctx.stroke()
+
+                    ctx.strokeStyle = 'white'
+                    ctx.fillStyle="white"
+                    ctx.lineWidth = 5;
+                    ctx.beginPath()
+                    ctx.arc(307,87,5,0,2*Math.PI,false);
+                    ctx.fill()
+                    ctx.stroke()
+
+                    ctx.strokeStyle = 'black'
+                    ctx.fillStyle="black"
+                    ctx.lineWidth = 5;
+                    ctx.beginPath()
+                    ctx.arc(285,87,1,0,2*Math.PI,false);
+                    ctx.fill()
+                    ctx.stroke()
+
+                    ctx.strokeStyle = 'black'
+                    ctx.fillStyle="black"
+                    ctx.lineWidth = 5;
+                    ctx.beginPath()
+                    ctx.arc(307,87,1,0,2*Math.PI,false);
+                    ctx.fill()
+                    ctx.stroke()
+
+                    ctx.strokeStyle = 'pink'
+                    ctx.fillStyle="red"
+                    ctx.lineWidth = 5;
+                    ctx.beginPath()
+                    ctx.arc(296,108,4,0,2*Math.PI,false);
+                    ctx.fill()
+                    ctx.stroke()
+
+                    ctx.fillStyle = 'orange'
+                    ctx.lineWidth = 5;
+                    ctx.fillRect(240,40,110,20)
+
+                    ctx.fillStyle = '#DD4242'
+                    ctx.lineWidth = 5;
+                    ctx.fillRect(252,25,90,15)
+
+                    ctx.fillStyle = 'red'
+                    ctx.lineWidth = 5;
+                    ctx.fillRect(170,85,20,40)
+
+                    ctx.fillStyle = 'orange'
+                    ctx.lineWidth = 5;
+                    ctx.fillRect(165,75,30,10)
+
+                    
+
+                    //Ruedas
+                    ctx.strokeStyle = 'black'
+                    ctx.beginPath();
+                    ctx.arc(200,235,30,0,Math.PI*2,true);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.strokeStyle = 'black'
+                    ctx.beginPath();
+                    ctx.arc(260,235,30,0,Math.PI*2,true);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.strokeStyle = 'black'
+                    ctx.beginPath();
+                    ctx.arc(320,235,30,0,Math.PI*2,true);//1ros dos valores centro, 3ro radio, 4to angulo inicial, 5to angulo final, 6to sentido de las manecillas del reloj
+                    ctx.stroke();
+                    ctx.fill();
+
+                    ctx.fillStyle = 'gray'
+                    ctx.lineWidth = 6;
+                    ctx.fillRect(200,225,130,15)
+                    ctx.strokeStyle = 'black'
+
+                   
+                }
+                else{
+                    alert("Error al crear el contexto")
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
